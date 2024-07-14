@@ -1,0 +1,1167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9dd71e0f9cad7a4c9e02bde30b315a4, type: 3}
+  m_Name: LibraryRemocon
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: OnCompiledDoneObs
+      Entry: 7
+      Data: 0|Cargold.Observer.Observer_Action, Assembly-CSharp
+    - Name: subscriberList
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[System.Action, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: frameWorkData
+      Entry: 7
+      Data: 2|Cargold.LibraryRemocon+FrameWorkData, Assembly-CSharp
+    - Name: gameManagerName
+      Entry: 1
+      Data: GameSystem_Manager
+    - Name: gameManagerPath
+      Entry: 1
+      Data: Assets/3_Resources/Library_C
+    - Name: gameSystem_Manager
+      Entry: 6
+      Data: 
+    - Name: isPlaceInScene
+      Entry: 5
+      Data: true
+    - Name: userManagerData
+      Entry: 7
+      Data: 3|Cargold.LibraryRemocon+FrameWorkData+UserSystemData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: true
+    - Name: className
+      Entry: 1
+      Data: UserSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 4|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: userDataName
+      Entry: 1
+      Data: UserData
+    - Name: userWealthDataName
+      Entry: 1
+      Data: UserWealthData
+    - Name: wealthQuantityTypeName
+      Entry: 1
+      Data: int
+    - Name: wealthTypeName
+      Entry: 1
+      Data: WealthType
+    - Name: wealthTypeArr
+      Entry: 7
+      Data: 5|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: testUserDataName
+      Entry: 1
+      Data: Test_UserData
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: lczData
+      Entry: 7
+      Data: 6|Cargold.LibraryRemocon+FrameWorkData+LocalizeSystemData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: true
+    - Name: className
+      Entry: 1
+      Data: LocalizeSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 7|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: libraryTableData
+      Entry: 7
+      Data: 8|Cargold.LibraryRemocon+FrameWorkData+LocalizeSystemData+TableData,
+        Assembly-CSharp
+    - Name: sheetName
+      Entry: 1
+      Data: Localize
+    - Name: dbmStr
+      Entry: 1
+      Data: "\r\n            public override Cargold.FrameWork.IDB_Localize GetLocalize_C
+        => this.localize;\r\n            "
+    - Name: dataGroupStr
+      Entry: 1
+      Data: ', Cargold.FrameWork.IDB_Localize'
+    - Name: dataGroupFuncStr
+      Entry: 1
+      Data: "\r\n            bool ILibraryDataGroup<Cargold.FrameWork.ILczData>.TryGetData_Func(string
+        _key, out Cargold.FrameWork.ILczData _lczData)\r\n            {\r\n               
+        if (base.dataDic != null && base.dataDic.ContainsKey(_key) == true)\r\n               
+        {\r\n                    _lczData = base.dataDic[_key];\r\n                   
+        return true;\r\n                }\r\n                else\r\n               
+        {\r\n                    _lczData = null;\r\n                    return false;\r\n               
+        }\r\n            }\r\n            "
+    - Name: dataClassStr
+      Entry: 1
+      Data: ', Cargold.FrameWork.ILczData'
+    - Name: dataClassVarStr
+      Entry: 1
+      Data: "\r\n            string Cargold.FrameWork.ILczData.GetLczStr_Func(SystemLanguage
+        _langType)\r\n            {\r\n                switch (_langType)\r\n               
+        {\r\n                    default:\r\n                    case SystemLanguage.Korean:           
+        return ko;\r\n\r\n                    case SystemLanguage.English:           
+        return en;\r\n                    /*2*/\r\n                    /*3*/\r\n                   
+        /*4*/\r\n                    /*5*/\r\n                    /*6*/\r\n                   
+        /*7*/\r\n                    /*8*/\r\n                    /*9*/\r\n                   
+        /*10*/\r\n                    /*11*/\r\n                    /*12*/\r\n                   
+        /*13*/\r\n                    /*14*/\r\n                    /*15*/\r\n                   
+        /*16*/\r\n                    /*17*/\r\n                    /*18*/\r\n                   
+        /*19*/\r\n                    /*20*/\r\n                    /*21*/\r\n                   
+        /*22*/\r\n                    /*23*/\r\n                    /*24*/\r\n                   
+        /*25*/\r\n                    /*26*/\r\n                    /*27*/\r\n                   
+        /*28*/\r\n                    /*29*/\r\n                    /*30*/\r\n\r\n                   
+        case SystemLanguage.Unknown:\r\n                        Debug_C.Error_Func(\"\uB2E4\uC74C
+        \uC5B8\uC5B4\uB294 \uC9C0\uC6D0\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. : \"
+        + _langType);\r\n                        return default;\r\n               
+        }\r\n            }\r\n            "
+    - Name: langCodeDic
+      Entry: 7
+      Data: 9|System.Collections.Generic.Dictionary`2[[UnityEngine.SystemLanguage,
+        UnityEngine.CoreModule],[System.String, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 10|System.Collections.Generic.EnumEqualityComparer`1[[UnityEngine.SystemLanguage,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 10
+    - Name: $v
+      Entry: 1
+      Data: en
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: defaultLangType
+      Entry: 3
+      Data: 23
+    - Name: defaultLangStr
+      Entry: 1
+      Data: ko
+    - Name: systemLanguageArr
+      Entry: 7
+      Data: 11|UnityEngine.SystemLanguage[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: saveData
+      Entry: 7
+      Data: 12|Cargold.LibraryRemocon+FrameWorkData+SaveSystemData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: true
+    - Name: className
+      Entry: 1
+      Data: SaveSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 13|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: poolData
+      Entry: 7
+      Data: 14|Cargold.LibraryRemocon+FrameWorkData+PoolingSystemData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: true
+    - Name: className
+      Entry: 1
+      Data: PoolingSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 15|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: soundSystemData
+      Entry: 7
+      Data: 16|Cargold.LibraryRemocon+FrameWorkData+SoundSystemData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: true
+    - Name: className
+      Entry: 1
+      Data: SoundSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 17|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: databaseData
+      Entry: 7
+      Data: 18|Cargold.LibraryRemocon+FrameWorkData+DatabaseData, Assembly-CSharp
+    - Name: tableImporterData
+      Entry: 7
+      Data: 19|Cargold.LibraryRemocon+FrameWorkData+DatabaseData+TableImporterData,
+        Assembly-CSharp
+    - Name: scriptPath
+      Entry: 1
+      Data: Assets/2_Scripts/Library_C/DB
+    - Name: dbmClass
+      Entry: 6
+      Data: 
+    - Name: excelName
+      Entry: 1
+      Data: ImportedTable_C
+    - Name: excelFolderName
+      Entry: 1
+      Data: Temp
+    - Name: columnIngoreStr
+      Entry: 1
+      Data: '@'
+    - Name: sheetIngoreStr
+      Entry: 1
+      Data: '@'
+    - Name: ignoreStr
+      Entry: 1
+      Data: IGNORE_C
+    - Name: columnNameStr
+      Entry: 1
+      Data: Column_Name
+    - Name: columnKorNameStr
+      Entry: 1
+      Data: Column_KorName
+    - Name: columnTypeStr
+      Entry: 1
+      Data: Column_Type
+    - Name: jsonPath
+      Entry: 1
+      Data: Assets/3_Resources/Library_C/DB
+    - Name: jsonFolderName
+      Entry: 1
+      Data: Json_C
+    - Name: jsonFileName
+      Entry: 1
+      Data: TableJson
+    - Name: dataSobjPath
+      Entry: 1
+      Data: Assets/3_Resources/Library_C/DB
+    - Name: dataClassPrefixStr
+      Entry: 1
+      Data: 
+    - Name: dataClassSuffixStr
+      Entry: 1
+      Data: Data
+    - Name: dataGroupClassPrefixStr
+      Entry: 1
+      Data: DB_
+    - Name: dataGroupClassSuffixStr
+      Entry: 1
+      Data: DataGroup
+    - Name: dataKeyClassName
+      Entry: 1
+      Data: TableDataKey_C
+    - Name: dbScriptFolderName
+      Entry: 1
+      Data: Library_C
+    - Name: dbResourceFolderName
+      Entry: 6
+      Data: 
+    - Name: sheetDataDic
+      Entry: 6
+      Data: 
+    - Name: isCallAfterCompiled
+      Entry: 5
+      Data: false
+    - Name: isEnumGenerate
+      Entry: 5
+      Data: false
+    - Name: enumGenerateListDic
+      Entry: 6
+      Data: 
+    - Name: nestedGenerateDic
+      Entry: 6
+      Data: 
+    - Name: libraryTableDataList
+      Entry: 7
+      Data: 20|System.Collections.Generic.List`1[[Cargold.LibraryRemocon+FrameWorkData+DatabaseData+TableImporterData+LibraryTableData,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: iLibrary
+      Entry: 6
+      Data: 
+    - Name: exPoint
+      Entry: 3
+      Data: 3
+    - Name: tableImportTime_Edit
+      Entry: 7
+      Data: System.DateTime, mscorlib
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: tableImportGenerateTime_Edit
+      Entry: 7
+      Data: System.DateTime, mscorlib
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: remoconClassArr
+      Entry: 6
+      Data: 
+    - Name: isDataGroupImport
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: dbManagerClassName
+      Entry: 1
+      Data: DataBase_Manager
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: utilityClassData
+      Entry: 7
+      Data: 21|Cargold.LibraryRemocon+UtilityClassData, Assembly-CSharp
+    - Name: backKeyData
+      Entry: 7
+      Data: 22|Cargold.LibraryRemocon+UtilityClassData+BackKeyData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: BackKey_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 23|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: cameraData
+      Entry: 7
+      Data: 24|Cargold.LibraryRemocon+UtilityClassData+CameraData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: CameraSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 25|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: dialogueData
+      Entry: 7
+      Data: 26|Cargold.LibraryRemocon+UtilityClassData+DialogueData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: DialogueSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 27|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: Dialogue
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: libraryTableData
+      Entry: 7
+      Data: 28|Cargold.LibraryRemocon+UtilityClassData+DialogueData+TableData, Assembly-CSharp
+    - Name: sheetName
+      Entry: 1
+      Data: Dialogue
+    - Name: dbmStr
+      Entry: 1
+      Data: "\r\n            public override Cargold.Dialogue.IDB_Dialogue GetDialogue_C
+        => this.dialogue;\r\n            "
+    - Name: dataGroupStr
+      Entry: 1
+      Data: ', Cargold.Dialogue.IDB_Dialogue'
+    - Name: dataGroupFuncStr
+      Entry: 1
+      Data: "\r\n            [ShowInInspector, ReadOnly] private Dictionary<string,
+        List<Cargold.Dialogue.IDialogueData>> groupKeyByDataListDic;\r\n\r\n           
+        protected override void Init_Library_Func()\r\n            {\r\n               
+        base.Init_Library_Func();\r\n\r\n                if (this.groupKeyByDataListDic
+        == null)\r\n                    this.groupKeyByDataListDic = new Dictionary<string,
+        List<Cargold.Dialogue.IDialogueData>>();\r\n                else\r\n                   
+        this.groupKeyByDataListDic.Clear();\r\n\r\n                foreach (Cargold.Dialogue.IDialogueData
+        _iData in base.dataArr)\r\n                {\r\n                    string
+        _groupKey = _iData.GetGroupKey;\r\n                    if (_groupKey.IsNullOrWhiteSpace_Func()
+        == true)\r\n                        continue;\r\n\r\n                   
+        if (this.groupKeyByDataListDic.TryGetValue(_groupKey, out List<Cargold.Dialogue.IDialogueData>
+        _list) == false)\r\n                    {\r\n                        _list
+        = new List<Cargold.Dialogue.IDialogueData>();\r\n                       
+        this.groupKeyByDataListDic.Add(_groupKey, _list);\r\n                   
+        }\r\n\r\n                    int _groupID = _list.Count;\r\n                   
+        _iData.SetGroupID_Func(_groupID);\r\n\r\n                    _list.Add(_iData);\r\n               
+        }\r\n            }\r\n            bool Cargold.DB.TableImporter.ILibraryDataGroup<Cargold.Dialogue.IDialogueData>.TryGetData_Func(string
+        _key, out Cargold.Dialogue.IDialogueData _data)\r\n            {\r\n               
+        if (base.dataDic != null && base.dataDic.ContainsKey(_key) == true)\r\n               
+        {\r\n                    _data = base.dataDic[_key];\r\n                   
+        return true;\r\n                }\r\n                else\r\n               
+        {\r\n                    _data = null;\r\n                    return false;\r\n               
+        }\r\n            }\r\n            public bool TryGetNextData_Func(Cargold.Dialogue.IDialogueData
+        _endIData, out Cargold.Dialogue.IDialogueData _nextIData)\r\n           
+        {\r\n                string _groupKey = _endIData.GetGroupKey;\r\n               
+        if(_groupKey.IsNullOrWhiteSpace_Func() == false && this.groupKeyByDataListDic.TryGetValue(_groupKey,
+        out List<Cargold.Dialogue.IDialogueData> _list) == true)\r\n               
+        {\r\n                    int _nextGroupID = _endIData.GetGroupID + 1;\r\n\r\n                   
+        if(_list.TryGetItem_Func(_nextGroupID, out _nextIData) == true)\r\n                   
+        {\r\n                        return true;\r\n                    }\r\n               
+        }\r\n\r\n                _nextIData = null;\r\n                return false;\r\n           
+        }\r\n            "
+    - Name: dataClassStr
+      Entry: 1
+      Data: ', Cargold.Dialogue.IDialogueData'
+    - Name: dataClassVarStr
+      Entry: 1
+      Data: "\r\n        [ShowInInspector, ReadOnly, LabelText(\"\uADF8\uB8F9 ID\")]
+        public int groupID;\r\n\r\n        string Cargold.Dialogue.IDialogueData.GetKey
+        => this.Key;\r\n        string Cargold.Dialogue.IDialogueData.GetGroupKey
+        => this.groupKey;\r\n        string Cargold.Dialogue.IDialogueData.GetNameLczKey
+        => this.nameLczKey;\r\n        string Cargold.Dialogue.IDialogueData.GetDescLczKey
+        => this.descLczKey;\r\n        string Cargold.Dialogue.IDialogueData.GetSpeakerType
+        => this.speakerType;\r\n        string Cargold.Dialogue.IDialogueData.GetSpeckerAniTrigger
+        => this.speakerAniTrigger;\r\n        Cargold.Dialogue.DialogueButtonData[]
+        Cargold.Dialogue.IDialogueData.GetBtnDataArr => this.dialogueButtonDataArr;\r\n       
+        bool Cargold.Dialogue.IDialogueData.IsDimOff => this.isDimOff;\r\n       
+        int Cargold.Dialogue.IDialogueData.GetGroupID => this.groupID;\r\n\r\n\r\n       
+        void Cargold.Dialogue.IDialogueData.SetGroupID_Func(int _id)\r\n        {\r\n           
+        this.groupID = _id;\r\n        }\r\n            "
+    - Name: groupKey
+      Entry: 1
+      Data: groupKey
+    - Name: nameLczKey
+      Entry: 1
+      Data: nameLczKey
+    - Name: descLczKey
+      Entry: 1
+      Data: descLczKey
+    - Name: speakerType
+      Entry: 1
+      Data: speakerType
+    - Name: isDimOffStr
+      Entry: 1
+      Data: isDimOff
+    - Name: speakerAniTrigger
+      Entry: 1
+      Data: speakerAniTrigger
+    - Name: dialogueButtonDataArr
+      Entry: 1
+      Data: dialogueButtonDataArr
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: uiClassNameStr
+      Entry: 1
+      Data: UI_Dialogue_Script
+    - Name: uiBtnClassNameStr
+      Entry: 1
+      Data: UI_Dialogue_Button
+    - Name: speakerClassNameStr
+      Entry: 1
+      Data: Dialogue_Speaker
+    - Name: btnDataClassNameStr
+      Entry: 1
+      Data: DialogueButtonData
+    - Name: btnCallBackKeyName
+      Entry: 1
+      Data: DialogueCallBackKey
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: eventSystemData
+      Entry: 7
+      Data: 29|Cargold.LibraryRemocon+UtilityClassData+EventSystemData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: EventSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 30|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: serializeData
+      Entry: 7
+      Data: 31|Cargold.LibraryRemocon+UtilityClassData+EventSystemData+SerializeData,
+        Assembly-CSharp
+    - Name: isExcel
+      Entry: 5
+      Data: false
+    - Name: beginChar
+      Entry: 1
+      Data: (B)
+    - Name: beginComponentNum
+      Entry: 3
+      Data: 5
+    - Name: beginVarNum
+      Entry: 3
+      Data: 5
+    - Name: conditionChar
+      Entry: 1
+      Data: (C)
+    - Name: conditionComponentNum
+      Entry: 3
+      Data: 5
+    - Name: conditionVarNum
+      Entry: 3
+      Data: 5
+    - Name: stepChar
+      Entry: 1
+      Data: (S)
+    - Name: stepNum
+      Entry: 3
+      Data: 5
+    - Name: actionComponentNum
+      Entry: 3
+      Data: 5
+    - Name: actionVarNum
+      Entry: 3
+      Data: 5
+    - Name: parseStrArr
+      Entry: 7
+      Data: 32|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 1
+      Data: '!'
+    - Name: 
+      Entry: 1
+      Data: '@'
+    - Name: 
+      Entry: 1
+      Data: '#'
+    - Name: 
+      Entry: 1
+      Data: $
+    - Name: 
+      Entry: 1
+      Data: '%'
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: eventToolControl
+      Entry: 7
+      Data: 33|Cargold.LibraryRemocon+UtilityClassData+EventSystemData+EventToolControl,
+        Assembly-CSharp
+    - Name: beginTypeByDataDic
+      Entry: 7
+      Data: 34|System.Collections.Generic.Dictionary`2[[BeginType, Assembly-CSharp],[Cargold.LibraryRemocon+UtilityClassData+EventSystemData+EventToolControl+Data,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 35|System.Collections.Generic.ObjectEqualityComparer`1[[BeginType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: conditionTypeByDataDic
+      Entry: 7
+      Data: 36|System.Collections.Generic.Dictionary`2[[ConditionType, Assembly-CSharp],[Cargold.LibraryRemocon+UtilityClassData+EventSystemData+EventToolControl+Data,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 37|System.Collections.Generic.ObjectEqualityComparer`1[[ConditionType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: actionTypeByDataDic
+      Entry: 7
+      Data: 38|System.Collections.Generic.Dictionary`2[[ActionType, Assembly-CSharp],[Cargold.LibraryRemocon+UtilityClassData+EventSystemData+EventToolControl+Data,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 39|System.Collections.Generic.ObjectEqualityComparer`1[[ActionType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: toolPathStr
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: eventClassNameStr
+      Entry: 1
+      Data: Event_Script
+    - Name: templatePathStr
+      Entry: 1
+      Data: Assets/3_Resources/Data/Event/Resources/
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: focusSystemData
+      Entry: 7
+      Data: 40|Cargold.LibraryRemocon+UtilityClassData+FocusSystemData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: UI_Focus_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 41|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: joystickSystemData
+      Entry: 7
+      Data: 42|Cargold.LibraryRemocon+UtilityClassData+JoystickSystemData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: UI_Joystick_Model_Script
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 43|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: controllerType
+      Entry: 3
+      Data: 1
+    - Name: uiClassNameStr_Model
+      Entry: 1
+      Data: UI_Joystick_Model_Script
+    - Name: uiClassNameStr_View
+      Entry: 1
+      Data: UI_Joystick_View_Script
+    - Name: uiClassNameStr_Controller
+      Entry: 1
+      Data: UI_Joystick_Controller_Script
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: stringDropdownData
+      Entry: 7
+      Data: 44|Cargold.LibraryRemocon+UtilityClassData+StringDropdownData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: StringDropdownData
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 45|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: sobjFolderPath
+      Entry: 6
+      Data: 
+    - Name: initDataList
+      Entry: 7
+      Data: 46|System.Collections.Generic.List`1[[Cargold.LibraryRemocon+UtilityClassData+StringDropdownData+InitData,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: toastSystemData
+      Entry: 7
+      Data: 47|Cargold.LibraryRemocon+UtilityClassData+ToastSystemData, Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: UI_Toast_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 48|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: assetLibraryData
+      Entry: 7
+      Data: 49|Cargold.LibraryRemocon+AssetLibraryData, Assembly-CSharp
+    - Name: advertiseData
+      Entry: 7
+      Data: 50|Cargold.LibraryRemocon+AssetLibraryData+AdvertiseData, Assembly-CSharp
+    - Name: unresponseCancleTime
+      Entry: 4
+      Data: 10
+    - Name: unityAdsData
+      Entry: 7
+      Data: 51|Cargold.LibraryRemocon+AssetLibraryData+AdvertiseData+UnityAdsData,
+        Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: AdsSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 52|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: Ads
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: aosGameID
+      Entry: 6
+      Data: 
+    - Name: iosGameID
+      Entry: 6
+      Data: 
+    - Name: aosUnitID_Interstitial
+      Entry: 1
+      Data: Interstitial_Android
+    - Name: iosUnitID_Interstitial
+      Entry: 1
+      Data: Interstitial_iOS
+    - Name: aosUnitID_Reward
+      Entry: 1
+      Data: Rewarded_Android
+    - Name: iosUnitID_Reward
+      Entry: 1
+      Data: Rewarded_iOS
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inappPurchaseData
+      Entry: 7
+      Data: 53|Cargold.LibraryRemocon+AssetLibraryData+InappPurchaseData, Assembly-CSharp
+    - Name: unresponseCancleTime
+      Entry: 4
+      Data: 10
+    - Name: unityPurhcaseData
+      Entry: 7
+      Data: 54|Cargold.LibraryRemocon+AssetLibraryData+InappPurchaseData+UnityPurchaseData,
+        Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: InappSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 55|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: Inapp
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: libraryTableData
+      Entry: 7
+      Data: 56|Cargold.LibraryRemocon+AssetLibraryData+InappPurchaseData+UnityPurchaseData+TableData,
+        Assembly-CSharp
+    - Name: sheetName
+      Entry: 1
+      Data: Inapp
+    - Name: dbmStr
+      Entry: 1
+      Data: "\r\n            public override Cargold.SDK.Purchase.IDB_Inapp GetInapp_C
+        => this.inapp;\r\n            "
+    - Name: dataGroupStr
+      Entry: 1
+      Data: ', Cargold.SDK.Purchase.IDB_Inapp'
+    - Name: dataGroupFuncStr
+      Entry: 1
+      Data: "\r\n        Cargold.SDK.Purchase.IInappData[] Cargold.SDK.Purchase.IDB_Inapp.GetDataArr_Func()\r\n       
+        {\r\n            return base.dataArr;\r\n        }\r\n\r\n        bool ILibraryDataGroup<Cargold.SDK.Purchase.IInappData>.TryGetData_Func(string
+        _key, out Cargold.SDK.Purchase.IInappData _iData)\r\n        {\r\n           
+        if (base.dataDic.ContainsKey(_key) == true)\r\n            {\r\n               
+        _iData = base.dataDic[_key];\r\n                return true;\r\n           
+        }\r\n            else\r\n            {\r\n                _iData = null;\r\n               
+        return false;\r\n            }\r\n        }\r\n        "
+    - Name: dataClassStr
+      Entry: 1
+      Data: ', Cargold.SDK.Purchase.IInappData'
+    - Name: dataClassVarStr
+      Entry: 1
+      Data: "\r\n        public string GetGoogleID => this.googleID; // \uC911\uC694
+        : ID\uC5D0\uB294 \uC18C\uBB38\uC790, \uC22B\uC790, \uBC11\uC904 \uB610\uB294
+        \uB9C8\uCE68\uD45C\uB9CC \uC0AC\uC6A9\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.
+        \uC608\uC678\uCC98\uB9AC \u3131?\r\n        public string GetAppleID => this.appleID;\r\n       
+        public int GetProductTypeID => this.productTypeID;\r\n#if Purchase_Unity_C\r\n       
+        UnityEngine.Purchasing.ProductType Cargold.SDK.Purchase.IInappData.GetProductType
+        => (UnityEngine.Purchasing.ProductType)this.GetProductTypeID; \r\n#endif\r\n        "
+    - Name: googleID
+      Entry: 1
+      Data: googleID
+    - Name: appleID
+      Entry: 1
+      Data: appleID
+    - Name: productTypeID
+      Entry: 1
+      Data: productTypeID
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: trackingLogData
+      Entry: 7
+      Data: 57|Cargold.LibraryRemocon+AssetLibraryData+TrackingLogData, Assembly-CSharp
+    - Name: unityLogData
+      Entry: 7
+      Data: 58|Cargold.LibraryRemocon+AssetLibraryData+TrackingLogData+UnityLogData,
+        Assembly-CSharp
+    - Name: isEnable
+      Entry: 5
+      Data: false
+    - Name: className
+      Entry: 1
+      Data: LogSystem_Manager
+    - Name: scriptFolderPath
+      Entry: 6
+      Data: 
+    - Name: subFolderPathArr
+      Entry: 7
+      Data: 59|System.String[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: TrackingLog
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  logType: 1073741824
+  scriptFolderPath: Assets/2_Scripts/Library_C
+  resourcesFolderPath: Assets/3_Resources/Resources/Library_C
+  assetExampleFolderPath: Assets/3_Resources/Library_C
+  animationExampleFolderPath: Assets/3_Resources/Resources/Library_C/Animation
+  spriteExampleFolderPath: Assets/3_Resources/Resources/Library_C/Sprite
+  soundExampleFolderPath: Assets/3_Resources/Resources/Library_C/Sound
+  prefabExampleFolderPath: Assets/3_Resources/Resources/Library_C/Prefab
+  exampleScriptFolderPath: Assets/CargoldLibrary/Cargold/0_ETC/Script/Example_C
+  exampleAnimationFolderPath: Assets/CargoldLibrary/Cargold/0_ETC/Animation/AnimationExample_C
+  examplePrefabFolderPath: Assets/CargoldLibrary/Cargold/0_ETC/Prefab/PrefabExample_C
+  externalAssetFolderPath: 
+  isInit: 1

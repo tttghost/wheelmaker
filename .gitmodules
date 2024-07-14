@@ -1,0 +1,3 @@
+[submodule "cargoldlibraryproject"]
+	path = cargoldlibraryproject
+	url = https://bitbucket.org/cargoldcompany/cargoldlibraryproject.git

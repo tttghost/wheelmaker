@@ -781,5 +781,33 @@ public static partial class Util
     {
         return Mathf.Lerp(toA, toB, Mathf.InverseLerp(fromA, fromB, val));
     }
+
+    #region setdata - 컴포넌트에 부가기능 추가
+
+    public static Button SetData(this Button btn, Action action, eAudioClips eAudioClips = eAudioClips.effect_click, float volumeScale = 1f)
+    {
+        btn.onClick.RemoveAllListeners();
+        btn.onClick.AddListener(() =>
+        {
+            action?.Invoke();
+            SoundManager.instance.PlayEffect(eAudioClips, volumeScale);
+        });
+
+        return btn;
+    }
+
+    public static Toggle SetData(this Toggle tog, Action action = null, Action<bool> actionBool = null, eAudioClips eAudioClips = eAudioClips.effect_click, float volumeScale = 1f)
+    {
+        tog.onValueChanged.RemoveAllListeners();
+        tog.onValueChanged.AddListener((b) =>
+        {
+            action?.Invoke();
+            actionBool?.Invoke(b);
+            SoundManager.instance.PlayEffect(eAudioClips, volumeScale);
+        });
+
+        return tog;
+    }
+    #endregion
 }
 

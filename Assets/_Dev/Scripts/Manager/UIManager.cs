@@ -45,17 +45,13 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     private void CacheUI()
     {
-        // 각 ui panel,popup 등...
+        // 각 ui panel,popup 등... 다시 캐싱
         stackPanel.Clear();
         ui_Bases = FindObjectsOfType<ui_Base>(true);
         ui_Bases.ToList().ForEach(x => x.gameObject.SetActive(true));
-        ui_Bases.ToList().ForEach(x => x.gameObject.SetActive(false));
-        ui_Bases.ToList().FirstOrDefault(x => x.name.Contains("panel_PlayerPosition")).gameObject.SetActive(true);        
+        ui_Bases.ToList().ForEach(x => x.gameObject.SetActive(false)); 
         
     }
-
-   
-
 
     #endregion
 
@@ -90,6 +86,11 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    /// <summary>
+    /// 패널 가져오기
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     public T GetPanel<T>() where T : panel_Base
     {
         panel_Base panel_Base = default;
@@ -104,15 +105,30 @@ public class UIManager : Singleton<UIManager>
         return panel_Base as T;
     }
 
+    /// <summary>
+    /// 패널 열기
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     public T PushPanel<T>() where T : panel_Base
     {
         return GetPanel<T>().Push() as T;
     }
+
+    /// <summary>
+    /// 패널 전환
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     public T SwapPanel<T>() where T : panel_Base
     {
         return GetPanel<T>().Swap() as T;
     }
 
+    /// <summary>
+    /// 패널 닫기
+    /// </summary>
+    /// <returns></returns>
     public panel_Base PopPanel()
     {
         if (stackPanel.Count > 0)
@@ -130,7 +146,6 @@ public class UIManager : Singleton<UIManager>
 
         return panel_Base;
     }
-
 
     #endregion
 

@@ -11,30 +11,47 @@ using UnityEngine;
 /// </summary>
 public class panel_Core : MonoBehaviour
 {
-    private TMP_Text text_Money; // 재화
+    private TMP_Text text_Level_Auto; // 오토레벨
+    private TMP_Text text_Level_Click; // 클릭레벨
+    private TMP_Text text_Gold; // 재화
 
     private void Awake()
     {
-        text_Money = gameObject.Search<TMP_Text>(nameof(text_Money));
+        text_Level_Auto = gameObject.Search<TMP_Text>(nameof(text_Level_Auto));
+        text_Level_Click = gameObject.Search<TMP_Text>(nameof(text_Level_Click));
+        text_Gold = gameObject.Search<TMP_Text>(nameof(text_Gold));
     }
 
     private void OnEnable()
     {
-        MoneyController.Instance.Handler_Money += Callback_Money;
-        MoneyController.Instance.Refresh_Money();
+        GoldController.Instance.Handler_Level_Auto += Callback_Level_Auto;
+        GoldController.Instance.Handler_Level_Click += Callback_Level_Click;
+        GoldController.Instance.Handler_Gold += Callback_Gold;
+        GoldController.Instance.Refresh_Event();
     }
 
     private void OnDisable()
     {
-        MoneyController.Instance.Handler_Money -= Callback_Money;
+        GoldController.Instance.Handler_Level_Auto -= Callback_Level_Auto;
+        GoldController.Instance.Handler_Level_Click -= Callback_Level_Click;
+        GoldController.Instance.Handler_Gold -= Callback_Gold;
     }
+
+    /// <summary>
+    /// /자동레벨 콜백
+    /// </summary>
+    /// <param name="level"></param>
+    private void Callback_Level_Auto(int level) => text_Level_Auto.text = level.ToString();
+
+    /// <summary>
+    /// 클릭레벨 콜백
+    /// </summary>
+    /// <param name="level"></param>
+    private void Callback_Level_Click(int level) => text_Level_Click.text = level.ToString();
 
     /// <summary>
     /// 재화획득 콜백
     /// </summary>
-    /// <param name="money"></param>
-    private void Callback_Money(float money)
-    {
-        text_Money.text = money.ToString();
-    }
+    /// <param name="gold"></param>
+    private void Callback_Gold(int gold) => text_Gold.text = gold.ToString();
 }

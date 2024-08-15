@@ -56,4 +56,9 @@ public static class define
         public const string path_prefab_ui = path_prefab + "ui/";
         public const string path_prefab_player = path_prefab + "player/";
         public const string path_prefab_Controller = path_prefab + "Controller/";
+
+    // prefab
+    public const string path_db = "DB/";
+    public const string Level = nameof(Level);
+    public const string Gold = nameof(Gold);
 }

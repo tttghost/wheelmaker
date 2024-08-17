@@ -217,12 +217,13 @@ public static partial class Util
     /// <param name="tMP_Text"></param>
     /// <param name="data"></param>
     /// <returns></returns>
-    //public static TMP_Text SetData(this TMP_Text tMP_Text, LocalizionData data)
-    //{
-    //    LocalizationEvent localizationEvent = tMP_Text.GetOrAddComponent<LocalizationEvent>();
-    //    localizationEvent.SetLocalizing(data);
-    //    return tMP_Text;
-    //}
+    public static TMP_Text SetData(this TMP_Text tMP_Text, LocalizionData data)
+    {
+        LocalizationEvent localizationEvent = tMP_Text.GetOrAddComponent<LocalizationEvent>();
+        localizationEvent.SetLocalizing(data);
+        return tMP_Text;
+    }
+
     //public static Button SetData(this Button button, Action action, eAudioClips eAudioClips = eAudioClips.effect_click, float volumeScale = 1f)
     //{
     //    button.onClick.AddListener(() =>
@@ -260,6 +261,16 @@ public static partial class Util
     public static string[] Enum2StringArray<T>()
     {
         return Enum.GetNames(typeof(T));
+    }
+
+    /// <summary>
+    /// enum을 enumArray로 변환
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static T[] Enum2EnumArray<T>()
+    {
+        return Enum.GetValues(typeof(T)) as T[];
     }
 
     /// <summary>
@@ -684,42 +695,43 @@ public static partial class Util
 
 
     #region localizingEvent
-    ///// <summary>
-    ///// 로컬라이제이션(다국어) 가져오기
-    ///// </summary>
-    ///// <param name="id"></param>
-    ///// <param name="args"></param>
-    ///// <returns></returns>
-    //public static string GetLocalization(LocalizionData masterLocalData)
-    //{
-    //    return GetLocalization(masterLocalData.id, masterLocalData.args);
-    //}
-    //public static string GetLocalization(string id, params object[] args)
-    //{
-    //    if (string.IsNullOrEmpty(id)) return "";
-    //    var localizeData = DBManager.instance.GetLocalizeData(id);
+    /// <summary>
+    /// 로컬라이제이션(다국어) 가져오기
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="args"></param>
+    /// <returns></returns>
+    public static string GetLocalization(LocalizionData masterLocalData)
+    {
+        return GetLocalization(masterLocalData.id, masterLocalData.args);
+    }
+    public static string GetLocalization(string id, params object[] args)
+    {
+        if (string.IsNullOrEmpty(id)) return "";
+        var localizeData = DBManager.instance.GetLocalizeData(id);
 
-    //    string language = string.Empty;
-    //    string result;
-    //    try
-    //    {
-    //        switch (Scene_Title.instance.language)
-    //        {
-    //            case Language.Korean: 
-    //                language = localizeData.kor; break;
-    //            case Language.English:
-    //            default: 
-    //                language = localizeData.eng; break;
-    //        };
-    //        result = args == null || args.Length == 0 ? language : string.Format(language, args);
-    //    }
-    //    catch
-    //    {
-    //        //result = $"로컬라이징필요 - {id}";
-    //        result = id;
-    //    }
-    //    return result;
-    //}
+        string language;
+        string result;
+        LANGUAGE lANGUAGE = LANGUAGE.Korean;
+        try
+        {
+            switch (lANGUAGE)
+            {
+                case LANGUAGE.Korean:
+                    language = localizeData.ko; break;
+                case LANGUAGE.English:
+                default:
+                    language = localizeData.en; break;
+            };
+            result = args == null || args.Length == 0 ? language : string.Format(language, args);
+        }
+        catch
+        {
+            //result = $"로컬라이징필요 - {id}";
+            result = id;
+        }
+        return result;
+    }
 
     #endregion
 
@@ -763,6 +775,7 @@ public static partial class Util
     public delegate void Handler_Void();
     public delegate void Handler_Bool(bool b);
     public delegate void Handler_Int(int i);
+    public delegate void Handler_FloatInt(float f, int i);
     public delegate void Handler_Float(float f);
     public delegate void Handler_String(string s);
     public delegate void Handler_RaycastHit(RaycastHit hit);

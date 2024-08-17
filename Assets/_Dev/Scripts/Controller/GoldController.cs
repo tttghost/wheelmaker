@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// ====================================================================================================
@@ -19,7 +20,7 @@ public class GoldController : MonoBehaviour
     private int steps = 4; // 몇 단계로 나눌 것인지 (예: 4 -> 25씩 증가)
 
     private MyStatus MyStatus;
-    public event Util.Handler_Int Handler_Gold; // 획득 머니 이벤트
+    public event Util.Handler_Int Handler_AddGold; // 획득 머니 이벤트
     public event Util.Handler_Int Handler_Level_Click; // 클릭레벨 이벤트
     public event Util.Handler_Int Handler_Level_Auto; // 오토레벨 이벤트
     private void Awake()
@@ -33,6 +34,27 @@ public class GoldController : MonoBehaviour
         StartCoroutine(Co_GetGold_Auto());
     }
 
+    public Animator animator;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            animator.Play("1");
+            animator.GetComponent<Image>().color = Color.white;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            animator.Play("2");
+            animator.GetComponent<Image>().color = Color.black;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            animator.Play("3");
+            animator.GetComponent<Image>().color = Color.black;
+        }
+    }
+
     /// <summary>
     /// 이벤트 발생용
     /// </summary>
@@ -41,15 +63,13 @@ public class GoldController : MonoBehaviour
     {
         Handler_Level_Auto?.Invoke(MyStatus.level_auto);
         Handler_Level_Click?.Invoke(MyStatus.level_click);
-        Handler_Gold?.Invoke((int)MyStatus.gold);
+        Handler_AddGold?.Invoke((int)MyStatus.gold);
     }
 
-
-
-    public void AddGold(float gold)
-    {
-        Handler_Gold?.Invoke((int)MyStatus.AddGold(gold));
-    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="act"></param>
     public void Onclick_Level_Click(Action act = null)
     {
         int nextLevelCost = DBManager.instance.Gold_Clicks.GetData(MyStatus.level_click + 1).gold;
@@ -57,6 +77,10 @@ public class GoldController : MonoBehaviour
         act?.Invoke();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="act"></param>
     public void Onclick_Level_Auto(Action act = null)
     {
         int nextLevelCost = DBManager.instance.Gold_Autos.GetData(MyStatus.level_auto + 1).gold;
@@ -86,6 +110,15 @@ public class GoldController : MonoBehaviour
             AddGold(gold);
             yield return new WaitForSeconds(duration / steps);
         }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="gold"></param>
+    private void AddGold(float gold)
+    {
+        Handler_AddGold?.Invoke((int)MyStatus.AddGold(gold));
     }
 
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /// <summary>
 /// ====================================================================================================
 /// 
-/// 재화 획득 컨트롤러
+/// 재화 획득 컨트롤러 클래스
 /// 
 /// ====================================================================================================
 /// </summary>
@@ -72,7 +72,7 @@ public class GoldController : Singleton<GoldController>
     public void OnClick_GetGold()
     {
         int level = MyStatus.level_click;
-        int get = DBManager.instance.Gold_Clicks.GetData(level).gold;
+        int get = DBManager.instance.data_Gold_Clicks.GetData(level).gold;
         AddGold(get);
     }
 
@@ -84,7 +84,7 @@ public class GoldController : Singleton<GoldController>
     {
         while (true)
         {
-            float gold = (float)DBManager.instance.Gold_Autos.GetData(MyStatus.level_auto).gold / steps;
+            float gold = (float)DBManager.instance.data_Gold_Autos.GetData(MyStatus.level_auto).gold / steps;
             AddGold(gold);
             yield return new WaitForSeconds(duration / steps);
         }

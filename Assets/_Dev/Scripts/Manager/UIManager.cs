@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using System.Threading;
 using System.Threading.Tasks;
 
+[DefaultExecutionOrder(-9000)]
 public class UIManager : Singleton<UIManager>
 {
     #region base

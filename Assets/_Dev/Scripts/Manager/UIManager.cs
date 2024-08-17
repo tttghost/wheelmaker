@@ -86,6 +86,19 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    public T OpenPanel<T>() where T : panel_Base
+    {
+        T panel = GetPanel<T>();
+        panel.Open();
+        return panel;
+    }
+    public T ClosePanel<T>() where T : panel_Base
+    {
+        T panel = GetPanel<T>();
+        panel.Close();
+        return panel;
+    }
+
     /// <summary>
     /// 패널 가져오기
     /// </summary>

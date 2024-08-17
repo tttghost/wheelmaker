@@ -9,14 +9,14 @@ using UnityEngine;
 /// 
 /// ====================================================================================================
 /// </summary>
-public class panel_Core : MonoBehaviour
+public class panel_Core : panel_Base
 {
     private TMP_Text text_Level_Auto; // 오토레벨
     private TMP_Text text_Level_Click; // 클릭레벨
     private TMP_Text text_Gold; // 재화
-
-    private void Awake()
+    protected override void CacheComponent()
     {
+        base.CacheComponent();
         text_Level_Auto = gameObject.Search<TMP_Text>(nameof(text_Level_Auto));
         text_Level_Click = gameObject.Search<TMP_Text>(nameof(text_Level_Click));
         text_Gold = gameObject.Search<TMP_Text>(nameof(text_Gold));
@@ -26,7 +26,7 @@ public class panel_Core : MonoBehaviour
     {
         GoldController.Instance.Handler_Level_Auto += Callback_Level_Auto;
         GoldController.Instance.Handler_Level_Click += Callback_Level_Click;
-        GoldController.Instance.Handler_Gold += Callback_Gold;
+        GoldController.Instance.Handler_AddGold += Callback_Gold;
         GoldController.Instance.Refresh_Event();
     }
 
@@ -34,7 +34,7 @@ public class panel_Core : MonoBehaviour
     {
         GoldController.Instance.Handler_Level_Auto -= Callback_Level_Auto;
         GoldController.Instance.Handler_Level_Click -= Callback_Level_Click;
-        GoldController.Instance.Handler_Gold -= Callback_Gold;
+        GoldController.Instance.Handler_AddGold -= Callback_Gold;
     }
 
     /// <summary>

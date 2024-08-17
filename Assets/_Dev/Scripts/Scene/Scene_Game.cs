@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Scene_Game : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        UIManager.instance.OpenPanel<panel_Wheel>();
+        UIManager.instance.OpenPanel<panel_Core>();
+        UIManager.instance.OpenPanel<panel_LeftRight>();
+        UIManager.instance.OpenPanel<panel_LevelUp>();
     }
 }

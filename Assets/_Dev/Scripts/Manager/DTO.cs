@@ -34,6 +34,7 @@ public class MyStatus
         CostGold(gold);
         return level_player++;
     }
+
     /// <summary>
     /// 레벨업 클릭
     /// </summary>
@@ -44,6 +45,7 @@ public class MyStatus
         CostGold(gold);
         return level_click++;
     }
+
     /// <summary>
     /// 레벨업 오토
     /// </summary>

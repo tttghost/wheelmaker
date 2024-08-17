@@ -11,33 +11,36 @@ using UnityEngine.UI;
 /// 
 /// ====================================================================================================
 /// </summary>
-[DefaultExecutionOrder(-1000)]
-public class GoldController : MonoBehaviour
+public class GoldController : Singleton<GoldController>
 {
-    public static GoldController Instance;
+
+    public Animator animator;
 
     private float duration = 1f; // 1초 동안 진행
     private int steps = 4; // 몇 단계로 나눌 것인지 (예: 4 -> 25씩 증가)
 
     private MyStatus MyStatus;
     public event Util.Handler_Int Handler_AddGold; // 획득 머니 이벤트
-    public event Util.Handler_Int Handler_Level_Click; // 클릭레벨 이벤트
-    public event Util.Handler_Int Handler_Level_Auto; // 오토레벨 이벤트
-    private void Awake()
+
+    protected override bool ShouldDontDestroyOnLoad()
     {
-        Instance = this;
+        return false;
+    }
+    protected override void Awake()
+    {
+        base.Awake();
         MyStatus = DBManager.instance.MyStatus;
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         StartCoroutine(Co_GetGold_Auto());
     }
 
-    public Animator animator;
-
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             animator.Play("1");
@@ -61,33 +64,8 @@ public class GoldController : MonoBehaviour
     /// <param name="f"></param>
     public void Refresh_Event()
     {
-        Handler_Level_Auto?.Invoke(MyStatus.level_auto);
-        Handler_Level_Click?.Invoke(MyStatus.level_click);
         Handler_AddGold?.Invoke((int)MyStatus.gold);
     }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="act"></param>
-    public void Onclick_Level_Click(Action act = null)
-    {
-        int nextLevelCost = DBManager.instance.Gold_Clicks.GetData(MyStatus.level_click + 1).gold;
-        Handler_Level_Click?.Invoke(MyStatus.LevelUp_Click(nextLevelCost));
-        act?.Invoke();
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="act"></param>
-    public void Onclick_Level_Auto(Action act = null)
-    {
-        int nextLevelCost = DBManager.instance.Gold_Autos.GetData(MyStatus.level_auto + 1).gold;
-        Handler_Level_Auto?.Invoke(MyStatus.LevelUp_Auto(nextLevelCost));
-        act?.Invoke();
-    }
-
     /// <summary>
     /// 현 레벨에 맞게 클릭시 재화 획득
     /// </summary>

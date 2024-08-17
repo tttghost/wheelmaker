@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8962696684008253760}
   - component: {fileID: 3032989242822875668}
   m_Layer: 5
-  m_Name: panel_LevelUp2
+  m_Name: panel_LevelUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -24,17 +24,17 @@ public class panel_Core : panel_Base
 
     private void OnEnable()
     {
-        GoldController.Instance.Handler_Level_Auto += Callback_Level_Auto;
-        GoldController.Instance.Handler_Level_Click += Callback_Level_Click;
-        GoldController.Instance.Handler_AddGold += Callback_Gold;
-        GoldController.Instance.Refresh_Event();
+        GoldController.instance.Handler_Level_Auto += Callback_Level_Auto;
+        GoldController.instance.Handler_Level_Click += Callback_Level_Click;
+        GoldController.instance.Handler_AddGold += Callback_Gold;
+        GoldController.instance.Refresh_Event();
     }
 
     private void OnDisable()
     {
-        GoldController.Instance.Handler_Level_Auto -= Callback_Level_Auto;
-        GoldController.Instance.Handler_Level_Click -= Callback_Level_Click;
-        GoldController.Instance.Handler_AddGold -= Callback_Gold;
+        GoldController.instance.Handler_Level_Auto -= Callback_Level_Auto;
+        GoldController.instance.Handler_Level_Click -= Callback_Level_Click;
+        GoldController.instance.Handler_AddGold -= Callback_Gold;
     }
 
     /// <summary>

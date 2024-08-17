@@ -11,7 +11,7 @@ public class panel_Wheel : panel_Base
     protected override void CacheComponent()
     {
         base.CacheComponent();
-        btn_Wheel = gameObject.Search<Button>(nameof(btn_Wheel)).SetData(GoldController.Instance.OnClick_GetGold);
+        btn_Wheel = gameObject.Search<Button>(nameof(btn_Wheel)).SetData(GoldController.instance.OnClick_GetGold);
         img_Question = gameObject.Search<Image>(nameof(img_Question));
     }
 }

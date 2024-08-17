@@ -809,5 +809,130 @@ public static partial class Util
         return tog;
     }
     #endregion
+
+
+    public enum AnchorPreset
+    {
+        TopLeft,
+        TopCenter,
+        TopRight,
+        MiddleLeft,
+        MiddleCenter,
+        MiddleRight,
+        BottomLeft,
+        BottomCenter,
+        BottomRight,
+        StretchTop,
+        StretchMiddle,
+        StretchBottom,
+        StretchLeft,
+        StretchCenter,
+        StretchRight,
+        StretchAll
+    }
+
+    public static void SetAnchor(RectTransform rectTransform, AnchorPreset preset)
+    {
+        switch (preset)
+        {
+            // 일반적인 앵커 프리셋
+            case AnchorPreset.TopLeft:
+                rectTransform.anchorMin = new Vector2(0, 1);
+                rectTransform.anchorMax = new Vector2(0, 1);
+                rectTransform.pivot = new Vector2(0, 1);
+                break;
+            case AnchorPreset.TopCenter:
+                rectTransform.anchorMin = new Vector2(0.5f, 1);
+                rectTransform.anchorMax = new Vector2(0.5f, 1);
+                rectTransform.pivot = new Vector2(0.5f, 1);
+                break;
+            case AnchorPreset.TopRight:
+                rectTransform.anchorMin = new Vector2(1, 1);
+                rectTransform.anchorMax = new Vector2(1, 1);
+                rectTransform.pivot = new Vector2(1, 1);
+                break;
+            case AnchorPreset.MiddleLeft:
+                rectTransform.anchorMin = new Vector2(0, 0.5f);
+                rectTransform.anchorMax = new Vector2(0, 0.5f);
+                rectTransform.pivot = new Vector2(0, 0.5f);
+                break;
+            case AnchorPreset.MiddleCenter:
+                rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+                rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+                rectTransform.pivot = new Vector2(0.5f, 0.5f);
+                break;
+            case AnchorPreset.MiddleRight:
+                rectTransform.anchorMin = new Vector2(1, 0.5f);
+                rectTransform.anchorMax = new Vector2(1, 0.5f);
+                rectTransform.pivot = new Vector2(1, 0.5f);
+                break;
+            case AnchorPreset.BottomLeft:
+                rectTransform.anchorMin = new Vector2(0, 0);
+                rectTransform.anchorMax = new Vector2(0, 0);
+                rectTransform.pivot = new Vector2(0, 0);
+                break;
+            case AnchorPreset.BottomCenter:
+                rectTransform.anchorMin = new Vector2(0.5f, 0);
+                rectTransform.anchorMax = new Vector2(0.5f, 0);
+                rectTransform.pivot = new Vector2(0.5f, 0);
+                break;
+            case AnchorPreset.BottomRight:
+                rectTransform.anchorMin = new Vector2(1, 0);
+                rectTransform.anchorMax = new Vector2(1, 0);
+                rectTransform.pivot = new Vector2(1, 0);
+                break;
+
+            // Stretch 모드 프리셋
+            case AnchorPreset.StretchTop:
+                rectTransform.anchorMin = new Vector2(0, 1);
+                rectTransform.anchorMax = new Vector2(1, 1);
+                rectTransform.pivot = new Vector2(0.5f, 1);
+                rectTransform.offsetMin = new Vector2(0, rectTransform.offsetMin.y); // left와 right는 0으로
+                rectTransform.offsetMax = new Vector2(0, rectTransform.offsetMax.y); // 상단 스트레치이므로 y 값은 유지
+                break;
+            case AnchorPreset.StretchMiddle:
+                rectTransform.anchorMin = new Vector2(0, 0.5f);
+                rectTransform.anchorMax = new Vector2(1, 0.5f);
+                rectTransform.pivot = new Vector2(0.5f, 0.5f);
+                rectTransform.offsetMin = new Vector2(0, rectTransform.offsetMin.y); // left와 right는 0으로
+                rectTransform.offsetMax = new Vector2(0, rectTransform.offsetMax.y); // middle 스트레치이므로 y 값은 유지
+                break;
+            case AnchorPreset.StretchBottom:
+                rectTransform.anchorMin = new Vector2(0, 0);
+                rectTransform.anchorMax = new Vector2(1, 0);
+                rectTransform.pivot = new Vector2(0.5f, 0);
+                rectTransform.offsetMin = new Vector2(0, rectTransform.offsetMin.y); // left와 right는 0으로
+                rectTransform.offsetMax = new Vector2(0, rectTransform.offsetMax.y); // 하단 스트레치이므로 y 값은 유지
+                break;
+            case AnchorPreset.StretchLeft:
+                rectTransform.anchorMin = new Vector2(0, 0);
+                rectTransform.anchorMax = new Vector2(0, 1);
+                rectTransform.pivot = new Vector2(0, 0.5f);
+                rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, 0); // top과 bottom은 0으로
+                rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, 0); // 좌측 스트레치이므로 x 값은 유지
+                break;
+            case AnchorPreset.StretchCenter:
+                rectTransform.anchorMin = new Vector2(0.5f, 0);
+                rectTransform.anchorMax = new Vector2(0.5f, 1);
+                rectTransform.pivot = new Vector2(0.5f, 0.5f);
+                rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, 0); // top과 bottom은 0으로
+                rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, 0); // 가운데 스트레치이므로 x 값은 유지
+                break;
+            case AnchorPreset.StretchRight:
+                rectTransform.anchorMin = new Vector2(1, 0);
+                rectTransform.anchorMax = new Vector2(1, 1);
+                rectTransform.pivot = new Vector2(1, 0.5f);
+                rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, 0); // top과 bottom은 0으로
+                rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, 0); // 우측 스트레치이므로 x 값은 유지
+                break;
+            case AnchorPreset.StretchAll:
+                rectTransform.anchorMin = new Vector2(0, 0);
+                rectTransform.anchorMax = new Vector2(1, 1);
+                rectTransform.pivot = new Vector2(0.5f, 0.5f);
+                rectTransform.offsetMin = Vector2.zero; // 모든 방향에 대해 오프셋 0
+                rectTransform.offsetMax = Vector2.zero;
+                break;
+        }
+    }
 }
 

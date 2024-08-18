@@ -94,7 +94,7 @@ public class iter_LevelUp : ui_Base
                 break;
         }
         Level level = IsExistLevel(nextLevel);
-        // 다음레벨이 존재한다면
+        // 다음레벨이 존재하지 않는다면
         if (level == default)
         {
             text_Level.text = "Lv Max";

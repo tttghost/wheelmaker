@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -8,15 +9,20 @@ using UnityEngine;
 /// </summary>
 public class LevelUpController : Singleton<LevelUpController>
 {
+    private int selectLevel;
+
     private MyStatus MyStatus;
+    public event Util.Handler_Int Handler_LevelUp_Wheel; // 휠캐릭터 레벨-업 이벤트
+    public event Util.Handler_Int Handler_LevelUp_Click; // 클릭 레벨-업 이벤트
+    public event Util.Handler_Int Handler_LevelUp_Auto; // 오토 레벨-업 이벤트
+
     public event Util.Handler_Int Handler_Level_Wheel; // 휠캐릭터 레벨 이벤트
-    public event Util.Handler_Int Handler_Level_Click; // 클릭 레벨 이벤트
-    public event Util.Handler_Int Handler_Level_Auto; // 오토 레벨 이벤트
 
     protected override void Awake()
     {
         base.Awake();
         MyStatus = DBManager.instance.MyStatus;
+        selectLevel = MyStatus.level_wheel;
     }
     protected override bool ShouldDontDestroyOnLoad()
     {
@@ -29,8 +35,8 @@ public class LevelUpController : Singleton<LevelUpController>
     /// <param name="f"></param>
     public void Refresh_Event()
     {
-        Handler_Level_Auto?.Invoke(MyStatus.level_auto);
-        Handler_Level_Click?.Invoke(MyStatus.level_click);
+        Handler_LevelUp_Auto?.Invoke(MyStatus.level_auto);
+        Handler_LevelUp_Click?.Invoke(MyStatus.level_click);
     }
 
     /// <summary>
@@ -42,7 +48,7 @@ public class LevelUpController : Singleton<LevelUpController>
         int nextLevelCost = DBManager.instance.data_Levels.GetData(MyStatus.level_wheel + 1).requirement;
         if(CheckCost(nextLevelCost) == false) return;
         int nextLevel = MyStatus.LevelUp_Wheel(nextLevelCost);
-        Handler_Level_Wheel?.Invoke(nextLevel);
+        Handler_LevelUp_Wheel?.Invoke(nextLevel);
         act?.Invoke();
     }
 
@@ -55,7 +61,7 @@ public class LevelUpController : Singleton<LevelUpController>
         int nextLevelCost = DBManager.instance.data_Gold_Clicks.GetData(MyStatus.level_click + 1).requirement;
         if (CheckCost(nextLevelCost) == false) return;
         int nextLevel = MyStatus.LevelUp_Click(nextLevelCost);
-        Handler_Level_Click?.Invoke(nextLevel);
+        Handler_LevelUp_Click?.Invoke(nextLevel);
         act?.Invoke();
     }
 
@@ -68,7 +74,7 @@ public class LevelUpController : Singleton<LevelUpController>
         int nextLevelCost = DBManager.instance.data_Gold_Autos.GetData(MyStatus.level_auto + 1).requirement;
         if (CheckCost(nextLevelCost) == false) return;
         int nextLevel = MyStatus.LevelUp_Auto(nextLevelCost);
-        Handler_Level_Auto?.Invoke(nextLevel);
+        Handler_LevelUp_Auto?.Invoke(nextLevel);
         act?.Invoke();
     }
 
@@ -80,5 +86,16 @@ public class LevelUpController : Singleton<LevelUpController>
     public bool CheckCost(int cost)
     {
         return MyStatus.gold >= cost;
+    }
+
+    /// <summary>
+    /// 레벨바꿀때 이벤트
+    /// </summary>
+    /// <param name="i"></param>
+    public void OnChangedValue_Level(int i)
+    {
+        selectLevel += i;
+        selectLevel = Mathf.Clamp(selectLevel, 1, DBManager.instance.data_Levels.GetList().Max(x=>x.level) + 1);
+        Handler_Level_Wheel?.Invoke(selectLevel);
     }
 }

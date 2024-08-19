@@ -24,8 +24,8 @@ public class panel_Core : panel_Base
 
     private void OnEnable()
     {
-        LevelUpController.instance.Handler_Level_Auto += Callback_Level_Auto;
-        LevelUpController.instance.Handler_Level_Click += Callback_Level_Click;
+        LevelUpController.instance.Handler_LevelUp_Auto += Callback_Level_Auto;
+        LevelUpController.instance.Handler_LevelUp_Click += Callback_Level_Click;
         GoldController.instance.Handler_AddGold += Callback_Gold;
         
         LevelUpController.instance.Refresh_Event();
@@ -34,13 +34,13 @@ public class panel_Core : panel_Base
 
     private void OnDisable()
     {
-        LevelUpController.instance.Handler_Level_Auto -= Callback_Level_Auto;
-        LevelUpController.instance.Handler_Level_Click -= Callback_Level_Click;
+        LevelUpController.instance.Handler_LevelUp_Auto -= Callback_Level_Auto;
+        LevelUpController.instance.Handler_LevelUp_Click -= Callback_Level_Click;
         GoldController.instance.Handler_AddGold -= Callback_Gold;
     }
 
     /// <summary>
-    /// /자동레벨 콜백
+    /// 자동레벨 콜백
     /// </summary>
     /// <param name="level"></param>
     private void Callback_Level_Auto(int level) => text_Level_Auto.text = level.ToString();

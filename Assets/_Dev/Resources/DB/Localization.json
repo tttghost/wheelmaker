@@ -1,0 +1,37 @@
+[
+	{
+		"id" : "click_levelup_title",
+		"ko" : "클릭 레벨-업",
+		"en" : ""
+	},
+	{
+		"id" : "click_levelup_summary",
+		"ko" : "클릭시 돈 획득량 증가",
+		"en" : ""
+	},
+	{
+		"id" : "auto_levelup_title",
+		"ko" : "자동획득 레벨-업",
+		"en" : ""
+	},
+	{
+		"id" : "auto_levelup_summary",
+		"ko" : "자동 돈 획득량 증가",
+		"en" : ""
+	},
+	{
+		"id" : "wheel_levelup_title",
+		"ko" : "바퀴 레벨-업",
+		"en" : ""
+	},
+	{
+		"id" : "wheel_levelup_summary",
+		"ko" : "다음 바퀴로 레벨업 한다",
+		"en" : ""
+	},
+	{
+		"id" : "my_gold",
+		"ko" : "보유골드",
+		"en" : ""
+	}
+]

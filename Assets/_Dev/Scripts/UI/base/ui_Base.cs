@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.Linq;
 using UnityEngine;
 
 public interface IUI
@@ -29,6 +31,16 @@ public class ui_Base : MonoBehaviour, IUI
     protected virtual void CacheComponent()
     {
         go_Root = gameObject.SearchGameObject(nameof(go_Root));
+
+        if(go_Root == null)
+        {
+            go_Root = new GameObject(nameof(go_Root), typeof(RectTransform));
+            go_Root.transform.SetParent(transform, false);
+            Util.SetAnchor(go_Root.GetComponent<RectTransform>(), Util.AnchorPreset.StretchAll);
+            gameObject.Children()
+                .Where(x => x.name != nameof(go_Root)).ToList()
+                .ForEach(x => x.transform.SetParent(go_Root.transform));
+        }
 
         rectTransform = go_Root.GetComponent<RectTransform>();
 

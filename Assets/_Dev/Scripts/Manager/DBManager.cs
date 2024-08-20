@@ -1,18 +1,22 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
-
+[DefaultExecutionOrder(-10000)]
 public class DBManager : Singleton<DBManager>
 {
-    public DTOBaseData<Gold_Click> Gold_Clicks = new DTOBaseData<Gold_Click>();
-    public DTOBaseData<Gold_Auto> Gold_Autos = new DTOBaseData<Gold_Auto>();
-    public DTOBaseData<Level> Levels = new DTOBaseData<Level>();
+    public DTOBaseData<Localization> data_Localizations = new DTOBaseData<Localization>();
+    public DTOBaseData<Gold_Click> data_Gold_Clicks = new DTOBaseData<Gold_Click>();
+    public DTOBaseData<Gold_Auto> data_Gold_Autos = new DTOBaseData<Gold_Auto>();
+    public DTOBaseData<Level> data_Levels = new DTOBaseData<Level>();
 
     public MyStatus MyStatus;
 
+    public Util.Handler_Void Handler_Localization;
     protected override void Awake()
     {
         base.Awake();
@@ -21,7 +25,9 @@ public class DBManager : Singleton<DBManager>
 
         GetDB_Level();
         GetDB_Gold();
+        GetDB_Localization();
     }
+
     private void OnApplicationQuit()
     {
         Save_MyStatus();
@@ -54,8 +60,8 @@ public class DBManager : Singleton<DBManager>
     /// </summary>
     private void GetDB_Level()
     {
-        TextAsset level = Resources.Load<TextAsset>(define.path_db + define.Level);
-        Levels.SetDictionary(Levels.LoadTable(level.text).ToDictionary(x => x.level, x => x));
+        TextAsset level = Resources.Load<TextAsset>(Path.Combine(define.path_db, define.Level));
+        data_Levels.SetDictionary(data_Levels.LoadTable(level.text).ToDictionary(x => x.level, x => x));
     }
 
     /// <summary>
@@ -63,7 +69,7 @@ public class DBManager : Singleton<DBManager>
     /// </summary>
     private void GetDB_Gold()
     {
-        TextAsset gold = Resources.Load<TextAsset>(define.path_db + define.Gold);
+        TextAsset gold = Resources.Load<TextAsset>(Path.Combine(define.path_db, define.Gold));
 
         JObject jobj = JsonConvert.DeserializeObject< JObject>(gold.text);
         foreach (var x in jobj)
@@ -74,16 +80,54 @@ public class DBManager : Singleton<DBManager>
             switch (key)
             {
                 case nameof(Gold_Click):
-                    Gold_Clicks.SetDictionary(Gold_Clicks.LoadTable(value).ToDictionary(x => x.level, x => x));
+                    data_Gold_Clicks.SetDictionary(data_Gold_Clicks.LoadTable(value).ToDictionary(x => x.level, x => x));
                     break;
                 case nameof(Gold_Auto):
-                    Gold_Autos.SetDictionary(Gold_Autos.LoadTable(value).ToDictionary(x => x.level, x => x));
+                    data_Gold_Autos.SetDictionary(data_Gold_Autos.LoadTable(value).ToDictionary(x => x.level, x => x));
                     break;
                 default:
                     break;
             }
         }
     }
+
+    /// <summary>
+    /// 다국어
+    /// </summary>
+    private void GetDB_Localization()
+    {
+        TextAsset localization = Resources.Load<TextAsset>(Path.Combine(define.path_db, define.Localization));
+        data_Localizations.SetDictionary(data_Localizations.LoadTable(localization.text).ToDictionary(x => x.id, x => x));
+    }
+
+
+
+    /// <summary>
+    /// 다국어 데이터 가져오기
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public Localization GetLocalizeData(string id)
+    {
+        try
+        {
+            return data_Localizations.GetData(id);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("don't localizationData : " + id);
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// 언어설정 변경시 갱신
+    /// </summary>
+    public void RefreshMasterLocalizing()
+    {
+        Handler_Localization?.Invoke();
+    }
+
 }
 
 

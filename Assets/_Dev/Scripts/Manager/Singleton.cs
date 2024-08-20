@@ -18,7 +18,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
             //인스턴스 존재여부 확인
             if (_instance == null)
             {
-                GameObject go = null;
+                GameObject go;
                 T t = FindObjectOfType<T>(true);
 
                 if (t == null)
@@ -26,7 +26,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
                     go = new GameObject();
                     t = go.AddComponent<T>();
                 }
-                else 
+                else
                 {
                     go = t.gameObject;
                 }
@@ -36,10 +36,13 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
                 go.SetActive(true);
                 go.name = typeof(T).Name;
                 go.transform.position = Vector3.zero;
-                go.transform.rotation= Quaternion.identity;
+                go.transform.rotation = Quaternion.identity;
 
-                //DontDestroy 처리
-                DontDestroyOnLoad(go);
+                //DontDestroy 처리 여부에 따라 결정
+                if (_instance.ShouldDontDestroyOnLoad())
+                {
+                    DontDestroyOnLoad(go);
+                }
             }
 
             //중복제거
@@ -70,7 +73,16 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     }
 
     /// <summary>
-    /// 강제로 init가능
+    /// 상속받는 클래스에서 이 메서드를 오버라이드하여 DontDestroyOnLoad 여부를 결정
+    /// </summary>
+    /// <returns></returns>
+    protected virtual bool ShouldDontDestroyOnLoad()
+    {
+        return true; // 기본값은 true
+    }
+
+    /// <summary>
+    /// 강제로 Init가능
     /// </summary>
     public void Init() { }
 }

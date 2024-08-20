@@ -9,14 +9,14 @@ using UnityEngine;
 /// 
 /// ====================================================================================================
 /// </summary>
-public class panel_Core : MonoBehaviour
+public class panel_Core : panel_Base
 {
     private TMP_Text text_Level_Auto; // 오토레벨
     private TMP_Text text_Level_Click; // 클릭레벨
     private TMP_Text text_Gold; // 재화
-
-    private void Awake()
+    protected override void CacheComponent()
     {
+        base.CacheComponent();
         text_Level_Auto = gameObject.Search<TMP_Text>(nameof(text_Level_Auto));
         text_Level_Click = gameObject.Search<TMP_Text>(nameof(text_Level_Click));
         text_Gold = gameObject.Search<TMP_Text>(nameof(text_Gold));
@@ -24,21 +24,23 @@ public class panel_Core : MonoBehaviour
 
     private void OnEnable()
     {
-        GoldController.Instance.Handler_Level_Auto += Callback_Level_Auto;
-        GoldController.Instance.Handler_Level_Click += Callback_Level_Click;
-        GoldController.Instance.Handler_Gold += Callback_Gold;
-        GoldController.Instance.Refresh_Event();
+        LevelUpController.instance.Handler_LevelUp_Auto += Callback_Level_Auto;
+        LevelUpController.instance.Handler_LevelUp_Click += Callback_Level_Click;
+        GoldController.instance.Handler_AddGold += Callback_Gold;
+        
+        LevelUpController.instance.Refresh_Event();
+        GoldController.instance.Refresh_Event();
     }
 
     private void OnDisable()
     {
-        GoldController.Instance.Handler_Level_Auto -= Callback_Level_Auto;
-        GoldController.Instance.Handler_Level_Click -= Callback_Level_Click;
-        GoldController.Instance.Handler_Gold -= Callback_Gold;
+        LevelUpController.instance.Handler_LevelUp_Auto -= Callback_Level_Auto;
+        LevelUpController.instance.Handler_LevelUp_Click -= Callback_Level_Click;
+        GoldController.instance.Handler_AddGold -= Callback_Gold;
     }
 
     /// <summary>
-    /// /자동레벨 콜백
+    /// 자동레벨 콜백
     /// </summary>
     /// <param name="level"></param>
     private void Callback_Level_Auto(int level) => text_Level_Auto.text = level.ToString();

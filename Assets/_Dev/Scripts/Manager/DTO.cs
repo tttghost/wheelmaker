@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 public class MyStatus
 {
 
-    public int level_player { get; private set; } = 1;
+    public int level_wheel { get; private set; } = 1;
     public int level_click { get; private set; } = 1;
     public int level_auto { get; private set; } = 1;
     public float gold { get; private set; } = 0;
@@ -16,24 +16,25 @@ public class MyStatus
 
     // 이 생성자를 JsonConstructor로 지정
     [JsonConstructor]
-    public MyStatus(int level_player, int level_click, int level_auto, float gold)
+    public MyStatus(int level_wheel, int level_click, int level_auto, float gold)
     {
-        this.level_player = level_player;
+        this.level_wheel = level_wheel;
         this.level_click = level_click;
         this.level_auto = level_auto;
         this.gold = gold;
     }
 
     /// <summary>
-    /// 레벨업 플레이어
+    /// 레벨업 휠 캐릭터
     /// </summary>
     /// <param name="gold"></param>
     /// <returns></returns>
-    public int LevelUp_Player(int gold)
+    public int LevelUp_Wheel(int gold)
     {
         CostGold(gold);
-        return level_player++;
+        return ++level_wheel;
     }
+
     /// <summary>
     /// 레벨업 클릭
     /// </summary>
@@ -42,8 +43,9 @@ public class MyStatus
     public int LevelUp_Click(int gold)
     {
         CostGold(gold);
-        return level_click++;
+        return ++level_click;
     }
+
     /// <summary>
     /// 레벨업 오토
     /// </summary>
@@ -52,7 +54,7 @@ public class MyStatus
     public int LevelUp_Auto(int gold)
     {
         CostGold(gold);
-        return level_auto++;
+        return ++level_auto;
     }
 
     /// <summary>
@@ -62,7 +64,8 @@ public class MyStatus
     /// <returns>획득 후 재화</returns>
     public float AddGold(float gold)
     {
-        return this.gold += gold;
+        this.gold += gold;
+        return this.gold;
     }
 
     /// <summary>
@@ -72,13 +75,20 @@ public class MyStatus
     /// <returns>소비 후 재화</returns>
     public float CostGold(float gold)
     {
-        return this.gold -= gold;
+        this.gold -= gold;
+        return this.gold;
     }
 }
 
-public class Gold
+
+public class Level
 {
     public int level;
+    public int requirement;
+}
+
+public class Gold : Level
+{
     public int gold;
 }
 
@@ -88,10 +98,4 @@ public class Gold_Click : Gold
 
 public class Gold_Auto : Gold
 {
-}
-
-public class Level
-{
-    public int level;
-    public int requirement;
 }

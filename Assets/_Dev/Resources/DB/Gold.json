@@ -1,0 +1,57 @@
+{
+	"Gold_Click" : [
+		{
+			"level" : 1,
+			"requirement" : 100,
+			"gold" : 1
+		},
+		{
+			"level" : 2,
+			"requirement" : 200,
+			"gold" : 2
+		},
+		{
+			"level" : 3,
+			"requirement" : 400,
+			"gold" : 4
+		},
+		{
+			"level" : 4,
+			"requirement" : 800,
+			"gold" : 8
+		},
+		{
+			"level" : 5,
+			"requirement" : 2000,
+			"gold" : 16
+		}
+	],
+	"Gold_Auto" :
+	[
+		{
+			"level" : 1,
+			"requirement" : 100,
+			"gold" : 2
+		},
+		{
+			"level" : 2,
+			"requirement" : 200,
+			"gold" : 4
+		},
+		{
+			"level" : 3,
+			"requirement" : 400,
+			"gold" : 8
+		},
+		{
+			"level" : 4,
+			"requirement" : 1000,
+			"gold" : 16
+		},
+		{
+			"level" : 5,
+			"requirement" : 4000,
+			"gold" : 32
+		}
+	]
+}

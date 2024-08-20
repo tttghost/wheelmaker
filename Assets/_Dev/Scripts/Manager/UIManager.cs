@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using System.Threading;
 using System.Threading.Tasks;
 
+[DefaultExecutionOrder(-9000)]
 public class UIManager : Singleton<UIManager>
 {
     #region base
@@ -84,6 +85,19 @@ public class UIManager : Singleton<UIManager>
         {
             return stackPanel.Peek() is T;
         }
+    }
+
+    public T OpenPanel<T>() where T : panel_Base
+    {
+        T panel = GetPanel<T>();
+        panel.Open();
+        return panel;
+    }
+    public T ClosePanel<T>() where T : panel_Base
+    {
+        T panel = GetPanel<T>();
+        panel.Close();
+        return panel;
     }
 
     /// <summary>

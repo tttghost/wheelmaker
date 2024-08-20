@@ -54,11 +54,15 @@ public static class define
     public const string path_prefab = "Prefabs/";
         public const string path_prefab_go = path_prefab + "go/";
         public const string path_prefab_ui = path_prefab + "ui/";
+            public const string path_prefab_ui_iter = path_prefab_ui + "iter/";
+            public const string path_prefab_ui_panel = path_prefab_ui + "panel/";
+            public const string path_prefab_ui_popup = path_prefab_ui + "popup/";
         public const string path_prefab_player = path_prefab + "player/";
         public const string path_prefab_Controller = path_prefab + "Controller/";
 
     // prefab
     public const string path_db = "DB/";
+    public const string Localization = nameof(Localization);
     public const string Level = nameof(Level);
     public const string Gold = nameof(Gold);
 }

@@ -9,7 +9,7 @@ public class iter_LevelUp : ui_Base
 {
     private TMP_Text text_Title;
     private TMP_Text text_Summary;
-    private TMP_Text text_Level;
+    private TMP_Text text_Plus;
     private TMP_Text text_LevelUp;
 
     private Button btn_LevelUp;
@@ -21,7 +21,7 @@ public class iter_LevelUp : ui_Base
         base.CacheComponent();
         text_Title = gameObject.Search<TMP_Text>(nameof(text_Title));
         text_Summary = gameObject.Search<TMP_Text>(nameof(text_Summary));
-        text_Level = gameObject.Search<TMP_Text>(nameof(text_Level));
+        text_Plus = gameObject.Search<TMP_Text>(nameof(text_Plus));
         text_LevelUp = gameObject.Search<TMP_Text>(nameof(text_LevelUp));
 
         btn_LevelUp = gameObject.Search<Button>(nameof(btn_LevelUp)).SetData(OnClick_LevelUp);
@@ -78,32 +78,36 @@ public class iter_LevelUp : ui_Base
     private void SetNextLevelCost()
     {
         // 다음 레벨
-        int nextLevel = default;
+        int currentLevel = default;
+        int plus = default;
         switch (lEVELUP_STATE)
         {
             case LEVELUP_STATE.WHEEL:
-                nextLevel = DBManager.instance.MyStatus.level_wheel + 1;
+                currentLevel = DBManager.instance.MyStatus.level_wheel;
                 break;
             case LEVELUP_STATE.CLICK:
-                nextLevel = DBManager.instance.MyStatus.level_click + 1;
+                currentLevel = DBManager.instance.MyStatus.level_click;
+                plus = DBManager.instance.data_Gold_Clicks.GetData(currentLevel).gold;
                 break;
             case LEVELUP_STATE.AUTO:
-                nextLevel = DBManager.instance.MyStatus.level_auto + 1;
+                currentLevel = DBManager.instance.MyStatus.level_auto;
+                plus = DBManager.instance.data_Gold_Autos.GetData(currentLevel).gold;
                 break;
             default:
                 break;
         }
+        text_Plus.text = plus == default ? default : $"(+{plus.ToString("N0")})";
+        int nextLevel = currentLevel + 1;
+
         Level level = IsExistLevel(nextLevel);
         // 다음레벨이 존재하지 않는다면
         if (level == default)
         {
-            text_Level.text = "Lv Max";
-            text_LevelUp.text = $"Lv UP\nMax";
+            text_LevelUp.text = $"Lv Max";
         }
         else
         {
-            text_Level.text = $"Lv {nextLevel}";
-            text_LevelUp.text = $"Lv UP\n{level.requirement}";
+            text_LevelUp.text = $"Lv UP {currentLevel} → {nextLevel}\n<b>{level.requirement.ToString("N0")}</b>";
         }
     }
 

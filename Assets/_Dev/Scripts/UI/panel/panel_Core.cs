@@ -55,5 +55,5 @@ public class panel_Core : panel_Base
     /// 재화획득 콜백
     /// </summary>
     /// <param name="gold"></param>
-    private void Callback_Gold(int gold) => text_Gold.text = gold.ToString();
+    private void Callback_Gold(int gold) => text_Gold.text = gold.ToString("N0");
 }

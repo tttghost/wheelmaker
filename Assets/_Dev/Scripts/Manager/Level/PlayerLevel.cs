@@ -21,6 +21,29 @@ namespace WheelMaker.Manager.Level
 
         [field: SerializeField] public int AutoLevel { get; set; }
 
+        public int ByBehaviours(Behaviours behaviours)
+        {
+            //level
+            switch (behaviours)
+            {
+                case Behaviours.Wheel:
+                    {
+                        TextAsset requiredLevel = Resources.Load<TextAsset>(Path.Combine(define.path_db, define.Level));
+                        var requiredLevelList = JsonConvert.DeserializeObject<Level[]>(requiredLevel.text).ToDictionary(x => x.level, x => x);
+                        return requiredLevelList[WheelLevel].requirement; // 이부분 까지
+                    }
+                    break;
+                case Behaviours.MouseClick:
+                    Debug.Log("test1");
+                    break;
+                case Behaviours.Auto:
+                    Debug.Log("test2");
+                    break;
+                default:
+                    break;
+            }
+            return 0;
+        }
 
         public int GetCurrent(Behaviours behaviour)
         {

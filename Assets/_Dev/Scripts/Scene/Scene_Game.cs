@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Scene_Game : MonoBehaviour
 {
@@ -15,5 +16,13 @@ public class Scene_Game : MonoBehaviour
         UIManager.instance.OpenPanel<panel_Core>();
         UIManager.instance.OpenPanel<panel_LeftRight>();
         UIManager.instance.OpenPanel<panel_LevelUp>();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(nameof(Scene_Title));
+        }
     }
 }

@@ -8,4 +8,8 @@ public class Scene_Title : MonoBehaviour
     {
         DBManager.instance.Init();
     }
+    private void Start()
+    {
+        UIManager.instance.PushPanel<panel_Main>();
+    }
 }

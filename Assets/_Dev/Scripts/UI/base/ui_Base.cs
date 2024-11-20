@@ -4,18 +4,14 @@ using System.Linq;
 using Unity.Linq;
 using UnityEngine;
 
-public interface IUI
-{
-    void Open();
-    void Close();
-}
-
 public class ui_Base : MonoBehaviour, IUI
 {
     private bool isInit = false;
     public GameObject go_Root { get; private set; }
     public RectTransform rectTransform { get; private set; }
     public CanvasGroup canvasGroup { get; private set; }
+
+    public bool isOpen => throw new System.NotImplementedException();
 
     public virtual void Awake()
     {

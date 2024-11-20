@@ -4,7 +4,7 @@ namespace WheelMaker.Common
 {
     public enum Behaviours
     {
-        MouseWheel,
+        Wheel,
         MouseClick,
         Auto
     }

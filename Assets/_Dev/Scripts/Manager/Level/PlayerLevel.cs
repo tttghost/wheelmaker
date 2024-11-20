@@ -1,21 +1,31 @@
+using System.IO;
 using UnityEngine;
 using WheelMaker.Common;
 using WheelMaker.Manager.Interfaces;
+using WheelMaker.Define;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace WheelMaker.Manager.Level
 {
-    public class PlayerLevel : MonoBehaviour, ILevel
+    public class Level
     {
-        [field: SerializeField] public int ClickLevel { get; set; }
-
+        public int level;
+        public int requirement;
+    }
+    public class PlayerLevel : MonoBehaviour, ILevel, IRequiredLevel
+    {
         [field: SerializeField] public int WheelLevel { get; set; }
 
+        [field: SerializeField] public int ClickLevel { get; set; }
+
         [field: SerializeField] public int AutoLevel { get; set; }
+
 
         public int GetCurrent(Behaviours behaviour)
         {
             int level = 0;
-            if (behaviour == Behaviours.MouseWheel)
+            if (behaviour == Behaviours.Wheel)
             {
                 level = WheelLevel;
             }
@@ -32,7 +42,7 @@ namespace WheelMaker.Manager.Level
 
         public void Up(Behaviours behaviour)
         {
-            if (behaviour == Behaviours.MouseWheel)
+            if (behaviour == Behaviours.Wheel)
             {
                 WheelLevel++;
             }
@@ -44,6 +54,8 @@ namespace WheelMaker.Manager.Level
             {
                 AutoLevel++;
             }
+
         }
+
     }
 }

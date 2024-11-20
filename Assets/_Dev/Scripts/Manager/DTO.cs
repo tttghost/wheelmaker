@@ -73,10 +73,9 @@ public class MyStatus
     /// </summary>
     /// <param name="gold"></param>
     /// <returns>소비 후 재화</returns>
-    public float CostGold(float gold)
+    public void CostGold(float gold)
     {
         this.gold -= gold;
-        return this.gold;
     }
 }
 

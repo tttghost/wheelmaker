@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using WheelMaker.Common;
 using WheelMaker.Manager.Level;
+using WheelMaker.Define;
 
 public class panel_LevelUp : panel_Base
 {

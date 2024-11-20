@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using WheelMaker.Define;
 
 public class SoundManager : Singleton<SoundManager>
 {

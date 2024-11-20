@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using WheelMaker.Define;
 
 public class panel_Main : panel_Base
 {

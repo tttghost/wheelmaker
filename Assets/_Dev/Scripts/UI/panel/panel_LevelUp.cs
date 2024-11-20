@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using WheelMaker.Common;
+using WheelMaker.Manager.Level;
 
 public class panel_LevelUp : panel_Base
 {
+    [field: SerializeField] public PlayerLevel playerLevel { get; set; }
     protected override void CacheComponent()
     {
         base.CacheComponent();
-        iter_LevelUp iter_LevelUp_Prefab = Resources.Load<iter_LevelUp>(Path.Combine(define.path_prefab_ui_iter, nameof(iter_LevelUp)));
-        foreach (var lEVELUP_STATE in Util.Enum2EnumArray<LEVELUP_STATE>())
+
+        var prefabName = Path.Combine(define.path_prefab_ui_iter, nameof(iter_LevelUp));
+        var levelUpPrefab = Resources.Load<iter_LevelUp>(prefabName);
+        var behavioursArray = Util.Enum2EnumArray<Behaviours>();
+
+        foreach (var behaviours in behavioursArray)
         {
-            Instantiate(iter_LevelUp_Prefab, go_Root.transform).SetData(lEVELUP_STATE);
+            Instantiate(levelUpPrefab, go_Root.transform).Initialize(playerLevel, behaviours);
         }
     }
 }

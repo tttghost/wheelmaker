@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using WheelMaker.Define;
 [DefaultExecutionOrder(-10000)]
 public class DBManager : Singleton<DBManager>
 {

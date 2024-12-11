@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SoundManager : Singleton<SoundManager>
+public class SoundManager : MonoBehaviour
 {
+    #region legacy code
+    /*
     private Dictionary<eAudioMixerType, AudioSource> audioSourceDics = new Dictionary<eAudioMixerType, AudioSource>();
     private Dictionary<eAudioClips, AudioClip> audioClipDics = new Dictionary<eAudioClips, AudioClip>();
-
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
-
         InitAudioSource();
         InitAudioClip();
     }
@@ -22,7 +21,7 @@ public class SoundManager : Singleton<SoundManager>
     /// </summary>
     private void InitAudioSource()
     {
-         AudioMixer audioMixerController = Resources.Load<AudioMixer>(define.path_sound_audiomixer + nameof(audioMixerController));
+        AudioMixer audioMixerController = Resources.Load<AudioMixer>(define.path_sound_audiomixer + nameof(audioMixerController));
 
         AudioMixerGroup[] audioMixerGroup = audioMixerController.FindMatchingGroups(eAudioMixerType.Master.ToString());
         for (int i = 0; i < audioMixerGroup.Length; i++)
@@ -134,7 +133,9 @@ public class SoundManager : Singleton<SoundManager>
             Debug.LogError($"해당 {eAudioClip} audioClip이 존재하지 않음");
         }
     }
-}
+    
+
+
 
 public enum eAudioMixerType
 {
@@ -160,4 +161,7 @@ public enum eAudioClips
     //dialogue
 
     //voice
+}
+    */
+    #endregion
 }

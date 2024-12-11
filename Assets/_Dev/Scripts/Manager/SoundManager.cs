@@ -4,8 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : MonoBehaviour, IAudioControl
 {
+    public void Play()
+    {
+        Debug.Log("Play");
+    }
+
+    public void Stop()
+    {
+        Debug.Log("Stop");
+    }
+
     #region legacy code
     /*
     private Dictionary<eAudioMixerType, AudioSource> audioSourceDics = new Dictionary<eAudioMixerType, AudioSource>();

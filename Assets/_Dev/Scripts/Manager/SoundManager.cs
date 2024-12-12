@@ -6,24 +6,24 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour, IAudioControl
 {
-    [field: SerializeField] public AudioSource audioSource { get; set; }
-    [field: SerializeField] public AudioClip audioClip { get; set; }
+    [field: SerializeField] public AudioSource AudioSource { get; private set; }
+    [field: SerializeField] public AudioClip AudioClip { get; private set; }
 
     private void Awake()
     {
-        audioSource.clip = audioClip;
+        AudioSource.clip = AudioClip;
     }
 
     public void Play()
     {
         Debug.Log("Play");
-        audioSource.Play();
+        AudioSource.Play();
     }
 
     public void Stop()
     {
         Debug.Log("Stop");
-        audioSource.Stop();
+        AudioSource.Stop();
     }
 
     #region legacy code

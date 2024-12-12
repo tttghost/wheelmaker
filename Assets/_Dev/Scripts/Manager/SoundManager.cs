@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour, IAudioControl
 {
-    [field: SerializeField] public AudioSource AudioSource { get; private set; }
-    [field: SerializeField] public AudioClip AudioClip { get; private set; }
+    [field: SerializeField] public AudioSource AudioSource { get; set; }
+    [field: SerializeField] public AudioClip AudioClip { get; set; }
 
     private void Awake()
     {

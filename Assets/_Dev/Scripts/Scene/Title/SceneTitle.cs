@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using WheelMaker.Manager.Interfaces;
+using WheelMaker.Manager.Sounds;
 
 public class SceneTitle : MonoBehaviour
 {
     [field: SerializeField] public SoundManager SoundManager { get; set; }
 
     private IAudioControl audioControl; // 재생, 멈춤 인터페이스 구현
-
-    private void Awake()
-    {
-        DBManager.instance.Init();
-    }
 
     /// <summary>
     /// 사운드매니저 주입
@@ -20,7 +15,6 @@ public class SceneTitle : MonoBehaviour
     {
         audioControl?.Stop(); // 기존 오디오 중지
         audioControl = soundManager;
-        // audioControl?.Play(); // 오디오 재생 을 고려해봤는데 중지만 넣는게 좋겠다고 판단
     }
 
     private void Update()

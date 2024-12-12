@@ -1,0 +1,16 @@
+{
+    "name": "WheelMaker.Manager.Sounds",
+    "rootNamespace": "",
+    "references": [
+        "WheelMaker.Manager.Interfaces"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

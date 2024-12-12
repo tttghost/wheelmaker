@@ -1,5 +1,8 @@
-public interface IAudioControl
+namespace WheelMaker.Manager.Interfaces
 {
-    void Play();
-    void Stop();
+    public interface IAudioControl
+    {
+        void Play();
+        void Stop();
+    }
 }

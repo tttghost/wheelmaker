@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scene_Title : MonoBehaviour
+public class SceneTitle : MonoBehaviour
 {
     [field: SerializeField] public SoundManager SoundManager { get; set; }
 
@@ -14,7 +14,7 @@ public class Scene_Title : MonoBehaviour
     }
 
     /// <summary>
-    /// 사운드매니저 초기화
+    /// 사운드매니저 주입
     /// </summary>
     private void InjectSoundManager(SoundManager soundManager)
     {

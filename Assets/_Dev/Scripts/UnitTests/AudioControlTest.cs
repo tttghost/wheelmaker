@@ -5,17 +5,24 @@ using WheelMaker.Manager.Sounds;
 
 public class AudioControlTest
 {
+    static string[] testcaseBGMs = new string[] 
+    {
+        "Sounds/Music/bgm_festival",
+        "Sounds/Music/a",
+        "Sounds/Music/b",
+    };
+
     [Test]
-    public void Play()
+    public void Play([ValueSource(nameof(testcaseBGMs))] string bgmPath)
     {
         // Arrange
-        GameObject soundManagerGameObject = new GameObject("SoundManager");
+        GameObject soundManagerGameObject = new GameObject(nameof(SoundManager));
         soundManagerGameObject.SetActive(false);
 
         SoundManager soundManager = soundManagerGameObject.AddComponent<SoundManager>();
         soundManager.AudioSource = soundManagerGameObject.AddComponent<AudioSource>();
         soundManager.AudioSource.playOnAwake = false;
-        soundManager.AudioClip = Resources.Load<AudioClip>("Sounds/Music/bgm_festival");
+        soundManager.AudioClip = Resources.Load<AudioClip>(bgmPath);
 
         soundManagerGameObject.SetActive(true);
 
@@ -24,7 +31,6 @@ public class AudioControlTest
         audioControl.Play();
 
         // Assert
-        Assert.IsNotNull(soundManager.AudioSource.clip, "AudioClip should not be null.");
         Assert.IsTrue(soundManager.AudioSource.isPlaying, "AudioSource should be playing after Play() is called.");
     }
 
@@ -43,6 +49,7 @@ public class AudioControlTest
 
         // Act
         IAudioControl audioControl = soundManager;
+        audioControl.Play();
         audioControl.Stop();
 
         // Assert

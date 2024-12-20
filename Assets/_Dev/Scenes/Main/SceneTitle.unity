@@ -440,6 +440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea8e1d78069c3146add5226c0d18de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <AudioSource>k__BackingField: {fileID: 108200680}
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: 0d2a65f2feeaa1749a9c820e716677e3, type: 3}
 --- !u!4 &108200682
 Transform:
   m_ObjectHideFlags: 0

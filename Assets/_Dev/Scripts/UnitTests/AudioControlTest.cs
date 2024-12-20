@@ -14,7 +14,8 @@ public class AudioControlTest
 
         SoundManager soundManager = soundManagerGameObject.AddComponent<SoundManager>();
         soundManager.AudioSource = soundManagerGameObject.AddComponent<AudioSource>();
-        soundManager.AudioClip = Resources.Load<AudioClip>("Sounds/Music/bgm_festival.mp3");
+        soundManager.AudioSource.playOnAwake = false;
+        soundManager.AudioClip = Resources.Load<AudioClip>("Sounds/Music/bgm_festival");
 
         soundManagerGameObject.SetActive(true);
 
@@ -23,7 +24,8 @@ public class AudioControlTest
         audioControl.Play();
 
         // Assert
-        Assert.AreEqual(soundManager.AudioSource.isPlaying, true);
+        Assert.IsNotNull(soundManager.AudioSource.clip, "AudioClip should not be null.");
+        Assert.IsTrue(soundManager.AudioSource.isPlaying, "AudioSource should be playing after Play() is called.");
     }
 
     [Test]
@@ -35,7 +37,7 @@ public class AudioControlTest
 
         SoundManager soundManager = soundManagerGameObject.AddComponent<SoundManager>();
         soundManager.AudioSource = soundManagerGameObject.AddComponent<AudioSource>();
-        soundManager.AudioClip = Resources.Load<AudioClip>("Sounds/Music/bgm_festival.mp3");
+        soundManager.AudioClip = Resources.Load<AudioClip>("Sounds/Music/bgm_festival");
 
         soundManagerGameObject.SetActive(true);
 
@@ -44,6 +46,7 @@ public class AudioControlTest
         audioControl.Stop();
 
         // Assert
-        Assert.AreEqual(soundManager.AudioSource.isPlaying, false);
+        Assert.IsNotNull(soundManager.AudioSource, "AudioClip should not be null. ");
+        Assert.IsFalse(soundManager.AudioSource.isPlaying);
     }
 }

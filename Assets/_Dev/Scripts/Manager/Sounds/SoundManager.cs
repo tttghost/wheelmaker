@@ -14,7 +14,7 @@ namespace WheelMaker.Manager.Sounds
             set 
             {
                 volume = value;
-                Debug.Log($"Set volume : {volume.ToString("0.00")}");
+                Debug.Log($"Set volume : {volume:F2}");
                 if(AudioSource != null )
                 {
                     AudioSource.volume = value;

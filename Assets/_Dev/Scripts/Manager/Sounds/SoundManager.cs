@@ -3,14 +3,32 @@ using WheelMaker.Manager.Interfaces;
 
 namespace WheelMaker.Manager.Sounds
 {
-    public class SoundManager : MonoBehaviour, IAudioControl
+    public class SoundManager : MonoBehaviour, IAudioControl, IVolumeControl
     {
-        [field: SerializeField] public AudioSource AudioSource { get; set; }
-        [field: SerializeField] public AudioClip AudioClip { get; set; }
+        [field: SerializeField] public AudioSource AudioSource { get; private set; }
 
-        private void Awake()
+        private float volume;
+        public float Volume 
+        { 
+            get => volume;
+            set 
+            {
+                volume = value;
+                Debug.Log($"Set volume : {volume:F2}");
+                if(AudioSource != null )
+                {
+                    AudioSource.volume = value;
+                }
+            } 
+        }
+
+        public void Initialize(AudioSource audioSource, AudioClip audioClip)
         {
-            AudioSource.clip = AudioClip;
+            AudioSource = audioSource;
+            if (audioSource != null)
+            {
+                audioSource.clip = audioClip;
+            }
         }
 
         public void Play()
@@ -23,6 +41,18 @@ namespace WheelMaker.Manager.Sounds
         {
             Debug.Log("Stop");
             AudioSource.Stop();
+        }
+
+        public void Pause()
+        {
+            Debug.Log("Pause");
+            AudioSource.Pause();
+        }
+
+        public void UnPause()
+        {
+            Debug.Log("UnPause");
+            AudioSource.UnPause();
         }
     }
 }

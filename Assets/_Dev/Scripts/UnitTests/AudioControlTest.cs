@@ -16,18 +16,15 @@ public class AudioControlTest
     public void Play([ValueSource(nameof(testcaseBGMs))] string bgmPath)
     {
         // Arrange
-        GameObject soundManagerGameObject = new GameObject(nameof(SoundManager));
-        soundManagerGameObject.SetActive(false);
-
-        SoundManager soundManager = soundManagerGameObject.AddComponent<SoundManager>();
-        soundManager.AudioSource = soundManagerGameObject.AddComponent<AudioSource>();
-        soundManager.AudioSource.playOnAwake = false;
-        soundManager.AudioClip = Resources.Load<AudioClip>(bgmPath);
-
-        soundManagerGameObject.SetActive(true);
+        var go = new GameObject(nameof(SoundManager));
+        var soundManager = go.AddComponent<SoundManager>();
+        var audioSource = go.AddComponent<AudioSource>();
+        var audioClip = Resources.Load<AudioClip>(bgmPath);
+        soundManager.Initialize(audioSource, audioClip);
 
         // Act
         IAudioControl audioControl = soundManager;
+        audioControl.Stop();
         audioControl.Play();
 
         // Assert
@@ -38,14 +35,12 @@ public class AudioControlTest
     public void Stop()
     {
         // Arrange
-        GameObject soundManagerGameObject = new GameObject("SoundManager");
-        soundManagerGameObject.SetActive(false);
-
-        SoundManager soundManager = soundManagerGameObject.AddComponent<SoundManager>();
-        soundManager.AudioSource = soundManagerGameObject.AddComponent<AudioSource>();
-        soundManager.AudioClip = Resources.Load<AudioClip>("Sounds/Music/bgm_festival");
-
-        soundManagerGameObject.SetActive(true);
+        GameObject go = new GameObject(nameof(SoundManager));
+        SoundManager soundManager = go.AddComponent<SoundManager>();
+        var audioSource = go.AddComponent<AudioSource>();
+        var audioClip = Resources.Load<AudioClip>("Sounds/Music/bgm_festival");
+        soundManager.Initialize(audioSource, audioClip);
+        soundManager.AudioSource.playOnAwake = false;
 
         // Act
         IAudioControl audioControl = soundManager;
